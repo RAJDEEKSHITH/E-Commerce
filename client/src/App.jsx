@@ -20,6 +20,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./features/auth/authSlice";
 import { Skeleton } from "@/components/ui/skeleton"
+import PayPalReturnPage from "./pages/shopping-view/PayPalReturnPage";
+import PaymentSuccess from "./pages/shopping-view/PaymentSuccess";
+import { Toaster } from "./components/ui/sonner";
+import SearchProducts from "./pages/shopping-view/SearchProducts";
 
 
 
@@ -42,6 +46,7 @@ const App = () => {
   return (
 
     <div className="flex flex-col overflow-hidden bg-white">
+      <Toaster />
       <Routes>
 
        {/* Redirect root '/' to '/auth/login' */}
@@ -83,6 +88,9 @@ const App = () => {
           <Route path="listing" element={<ProductsListing/>}/>
           <Route path="checkout" element={<Checkout/>}/>
           <Route path="account" element={<AccountPage/>}/>
+          <Route path="paypal-return" element={<PayPalReturnPage/>}/>
+          <Route path="payment-success" element={<PaymentSuccess/>}/>
+          <Route path="search" element={<SearchProducts/>}/>
         
         </Route>
         <Route path="*" element={<NotFound/>}/>

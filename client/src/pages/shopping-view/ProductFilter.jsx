@@ -24,10 +24,7 @@ const ProductFilter = ({filters,handleFilter}) => {
                   filterOptions[keyItem].map( option => (
                   <Label className="flex items-center gap-2 font-medium" key={option.id}>
                     <Checkbox 
-                    checked= {
-                      filters && Object.keys(filters).length > 0 &&
-                      filters[keyItem] && filters[keyItem].indexOf(option.id) > -1
-                    }
+                  checked={!!(filters?.[keyItem]?.includes(option.id))}
                     onCheckedChange={() => handleFilter(keyItem,option.id)} className="border border-gray-400 rounded-sm" />
                     {
                       option.label

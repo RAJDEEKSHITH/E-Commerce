@@ -7,7 +7,9 @@ import { useRef } from "react";
 import axios from "axios"
 import { Skeleton } from "@/components/ui/skeleton";
 const ProductImageUpload = ({ 
-  imageFile, setImageFile, uploadedImageUrl, setUploadedImageUrl, setImageLoadingState, imageLoadingState, isEditMode}) => {
+  imageFile, setImageFile, uploadedImageUrl, setUploadedImageUrl, setImageLoadingState, imageLoadingState, isEditMode,
+  isCustomStyling=false
+}) => {
 
   const inputRef = useRef(null);
 
@@ -72,7 +74,7 @@ const ProductImageUpload = ({
 
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className={`w-full ${isCustomStyling ? "" : "max-w-md mx-auto"}`}>
       <Label className="text-lg font-semibold mb-1 block">Upload Image</Label>
       <div
         onDragOver={handleDragOver}

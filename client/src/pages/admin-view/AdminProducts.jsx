@@ -29,7 +29,7 @@ const AdminProducts = () => {
     const [formData, setFormData] = useState(initialFormData);
     const [imageFile, setImageFile] = useState(null);
     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-    const [imageLoadingState, setImageLoadingState] = useState(false)
+    const [imageLoadingState, setImageLoadingState] = useState(false);
     const [currentEditedId,setCurrentEditedId] = useState(null)
 
     const dispatch = useDispatch();

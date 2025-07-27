@@ -3,16 +3,21 @@ import { Button } from "../ui/button";
 import { Card, CardFooter,CardContent } from "../ui/card";
 import { brandOptionsMap, categoryOptionsMap } from "@/config";
 
-const ShoppingProductTile = ({product}) => {
+const ShoppingProductTile = ({product,handleGetProductDetails,handleAddToCart}) => {
 
   return (
 
     <Card className="w-full max-w-sm mx-auto pt-0">
-        <div>
+        <div onClick={() => handleGetProductDetails(product?._id)}>
           <div className="relative">
             <img src={product?.image} alt={product?.title}
              className="block w-full h-[300px] object-cover rounded-t-lg"/>
-             {
+             {  
+                product.totalStock === 0 ?   <Badge 
+                    className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+                        Out of Stock</Badge> : product.totalStock <= 10 ?  <Badge 
+                    className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+                        {`only ${product?.totalStock} items left`}</Badge> :
                 product?.salePrice > 0 ? 
                 (
                     <Badge 
@@ -41,10 +46,14 @@ const ShoppingProductTile = ({product}) => {
                 
             </div>
           </CardContent>
-          <CardFooter>
-            <Button className="w-full">Add to cart</Button>
-         </CardFooter>              
         </div>
+          <CardFooter>
+            {
+              product.totalStock === 0 ?
+            <Button className="w-full opacity-60 cursor-not-allowed">Out of Stock</Button> :
+            <Button onClick={ () => handleAddToCart(product?._id,product?.totalStock) } className="w-full">Add to cart</Button>
+            }
+         </CardFooter>              
     </Card>
 
   );
