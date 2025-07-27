@@ -14,7 +14,7 @@ const AdminHeader = ({setOpen}) => {
   function handleLogOut () {
     // dispacth(loginOutUser())
       dispacth(resetTokenAndCredentials())
-      sessionStorage.clear();
+      localStorage.clear();
       navigate("/auth/login");
   }
 

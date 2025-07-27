@@ -62,7 +62,7 @@ function HeaderRightContent () {
   function handleLogout () {
     // dispatch(loginOutUser());
     dispatch(resetTokenAndCredentials())
-    sessionStorage.clear();
+    localStorage.clear();
     navigate("/auth/login");
   }
 
