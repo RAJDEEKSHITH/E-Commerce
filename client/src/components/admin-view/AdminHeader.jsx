@@ -9,9 +9,13 @@ import { useNavigate } from "react-router-dom";
 const AdminHeader = ({setOpen}) => {
 
   const dispacth = useDispatch();
-
+  const navigate = useNavigate();
+  
   function handleLogOut () {
-    dispacth(loginOutUser())
+    // dispacth(loginOutUser())
+      dispacth(resetTokenAndCredentials())
+      sessionStorage.clear();
+      navigate("/auth/login");
   }
 
   return (

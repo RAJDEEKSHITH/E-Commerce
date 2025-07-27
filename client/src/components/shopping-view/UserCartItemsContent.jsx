@@ -16,12 +16,10 @@ const handleCartItemDelete = (getCartItem) => {
 }
 
 function handleUpdateQuantity (getCartItem,typeOfAction) {
-  console.log("Clicked", getCartItem, typeOfAction);
   if(typeOfAction === "plus") {
     let getCartItems = cartItems?.items || [];
     if(getCartItems.length) {
     const indexOfCurrentCartItem = getCartItems?.findIndex(item => item.productId === getCartItem?.productId);
-    console.log(productsList);
     const getCurrentProductIndex = productsList?.findIndex(product => product._id === getCartItem?.productId);
     const getTotalStock = productsList[getCurrentProductIndex].totalStock;
       if(indexOfCurrentCartItem > -1) {
@@ -34,7 +32,6 @@ function handleUpdateQuantity (getCartItem,typeOfAction) {
     
   }
   }
-  console.log("Dispatching quantity update...");  
   dispatch(updateCartQuantity({
     userId:user?.id, productId: getCartItem?.productId , quantity : 
     typeOfAction === "plus" ?

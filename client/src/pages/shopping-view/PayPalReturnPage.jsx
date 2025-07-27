@@ -14,7 +14,6 @@ useEffect(() => {
   if(payerId && paymentId) {
     const orderId = JSON.parse(sessionStorage.getItem('currentOrderId'));
     dispatch(capturePayment({payerId,paymentId,orderId})).then((data) => {
-        console.log("PAYPAL CAPTURE RESPONSE:", data);
       if(data?.payload?.success) {
         sessionStorage.removeItem('currentOrderId');
         window.location.href="/shop/payment-success";

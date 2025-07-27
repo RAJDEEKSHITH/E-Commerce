@@ -17,7 +17,6 @@ const addFeatureImage = async(req,res) => {
             data : FeatureImages
         })
     } catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Internal server error"
@@ -33,7 +32,6 @@ const getFeatureImages = async(req,res) => {
             data : images
         })
     } catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Internal server error"

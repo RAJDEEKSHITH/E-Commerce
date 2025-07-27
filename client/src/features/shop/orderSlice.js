@@ -60,14 +60,7 @@ const shoppingOrderSlice = createSlice({
             state.isLoading = false;
             state.approvalURL = null;
             state.orderId = null;
-        })
-        // .addCase(capturePayment.fulfilled, (state, action) => {
-        // console.log("Redux capturePayment fulfilled:", action.payload);
-        // })
-        // .addCase(capturePayment.rejected, (state, action) => {
-        // console.error("Redux capturePayment failed:", action.error);
-        // })
-        
+        }) 
         .addCase(getAllOrdersByUserId.pending, (state) => {
             state.isLoading = true;
         })

@@ -37,7 +37,6 @@ const addProductReview = async (req,res) => {
             data : newReview
         })
     } catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Internal server error"
@@ -54,7 +53,6 @@ const getProductReviews = async (req,res) => {
             data : reviews
         })
     }catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Internal server error"

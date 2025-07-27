@@ -40,7 +40,6 @@ const createOrder = async(req,res) => {
 
         paypal.payment.create(create_payment_json, async(error,paymentInfo) => {
             if(error) {
-                console.log(error);
                 return res.status(500).json({
                     success : false,
                     message : "Error While Creating a payapal payment"
@@ -51,10 +50,6 @@ const createOrder = async(req,res) => {
                 totalAmount, orderDate, orderUpdateDate, paymentId, payerId
                 })
                 await newlyCreatedOrder.save();
-                console.log("Received addressInfo:", addressInfo);
-                console.log("Saved Order:", newlyCreatedOrder);
-
-
                 const approvalURL = paymentInfo.links.find(link => link.rel === "approval_url").href;
                 res.status(201).json({
                     success : true,
@@ -65,7 +60,6 @@ const createOrder = async(req,res) => {
         })
     }
     catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Some Error Occurred"
@@ -111,7 +105,6 @@ const capturePayment = async(req,res) => {
         })
     }
     catch(error) {
-        console.log(error);
         res.status(500).json({
             success : false,
             message : "Some Error Occurred"
@@ -135,7 +128,6 @@ const getAllOrdersByUser = async (req,res) => {
         })
     }
     catch (error) {
-    console.log(error);
     res.status(500).json({
         success : false,
         message : "Some Error Occurred"
@@ -159,7 +151,6 @@ const getOrderDetails = async (req,res) => {
         })
     }
     catch (error) {
-    console.log(error);
     res.status(500).json({
         success : false,
         message : "Some Error Occurred"

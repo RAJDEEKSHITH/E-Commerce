@@ -53,7 +53,6 @@ const Address = ({setCurrentSelectedAddress,selectedId}) => {
     }
 
 function handleDeleteAddress(getCurrentAddress) {
-    console.log(getCurrentAddress);
     dispatch(deleteAddress({userId : user?.id, addressId : getCurrentAddress?._id})).then((data) => {
         if (data?.payload?.success) {
             dispatch(fetchAllAddresses(user?.id))

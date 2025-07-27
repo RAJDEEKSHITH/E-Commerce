@@ -45,7 +45,6 @@ const SearchProducts = () => {
   },[productDetails])
   
   function handleAddToCart (getCurrentProductId,getTotalStock) {
-  console.log(cartItems, "cartItems") ;
   let getCartItems = cartItems?.items || [];
   if(getCartItems.length) {
     const indexofCurrentItem = getCartItems.findIndex(item => item.productId === getCurrentProductId);

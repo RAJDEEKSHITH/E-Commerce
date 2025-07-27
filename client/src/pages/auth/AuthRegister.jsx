@@ -37,11 +37,9 @@ function onSubmit(event) {
         color: "white"}
        });
     }
-    console.log(data);
   });
 }
 
-  console.log("FormData :",formData)
 
   return (
 

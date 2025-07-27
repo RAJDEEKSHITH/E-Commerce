@@ -7,7 +7,6 @@ import { Badge } from "../ui/badge";
 import { useSelector } from "react-redux";
 
 const ShoppingOrderDetails = ({orderDetails}) => {
-  console.log(orderDetails);
 const [formData, setFormData] = useState({
     status: "", // default value
   });

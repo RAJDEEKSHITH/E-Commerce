@@ -7,7 +7,7 @@ import { categoryOptionsMap, shoppingViewHeaderMenuItems } from "@/config";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
            DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
-import { loginOutUser } from "@/features/auth/authSlice";
+import { loginOutUser, resetTokenAndCredentials } from "@/features/auth/authSlice";
 import UserCartWrapper from "./UserCartWrapper";
 import { useEffect, useState } from "react";
 import { fetchCartItems } from "@/features/shop/cartSlice";
@@ -60,7 +60,10 @@ function HeaderRightContent () {
   const dispatch = useDispatch();
 
   function handleLogout () {
-    dispatch(loginOutUser());
+    // dispatch(loginOutUser());
+    dispatch(resetTokenAndCredentials())
+    sessionStorage.clear();
+    navigate("/auth/login");
   }
 
   useEffect(() => {

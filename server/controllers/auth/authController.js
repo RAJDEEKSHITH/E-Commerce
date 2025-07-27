@@ -72,9 +72,20 @@ const loginUser = async (req,res) => {
         },`CLIENT_SECRET_KEY`,{expiresIn : "8h"});
 
 
-        res.cookie('token',token,{httpOnly : true, secure : true}).json({
+        // res.cookie('token',token,{httpOnly : true, secure : true}).json({
+        //     success : true,
+        //     message : "Logged In Successfully",
+        //     user : {
+        //         email : existingUser.email,
+        //         role : existingUser.role,
+        //         id : existingUser._id,
+        //         userName : existingUser.userName
+        //     }
+        // })
+        res.status(200).json({
             success : true,
-            message : "Logged In Successfully",
+            message : "logged in Successfull",
+            token,
             user : {
                 email : existingUser.email,
                 role : existingUser.role,
@@ -110,8 +121,29 @@ const logoutUser = (req,res) => {
 
 // authMiddleware
 
+// const authMiddleware = async (req,res,next) => {
+//     const token = req.cookies.token;
+//     if(!token) {
+//         return res.status(401).json({
+//             success : false,
+//             message : "Unauthorized user!"
+//         })
+//     }
+//     try {
+//         const decoded = jwt.verify(token,"CLIENT_SECRET_KEY");
+//         req.user = decoded;
+//         next();
+//     }catch(error) {
+//         res.status(401).json({
+//             success : false,
+//             message : 'Unauthorized user!'
+//         })
+//     }
+// };
+
 const authMiddleware = async (req,res,next) => {
-    const token = req.cookies.token;
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
     if(!token) {
         return res.status(401).json({
             success : false,
@@ -129,7 +161,6 @@ const authMiddleware = async (req,res,next) => {
         })
     }
 };
-
 
 
 module.exports = { registerUser, loginUser, logoutUser, authMiddleware };
