@@ -19,11 +19,11 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./features/auth/authSlice";
-import { Skeleton } from "@/components/ui/skeleton"
 import PayPalReturnPage from "./pages/shopping-view/PayPalReturnPage";
 import PaymentSuccess from "./pages/shopping-view/PaymentSuccess";
 import { Toaster } from "./components/ui/sonner";
 import SearchProducts from "./pages/shopping-view/SearchProducts";
+import PageLoader from "./components/common/PageLoader";
 
 
 
@@ -41,7 +41,7 @@ const App = () => {
 
 
   if(isLoading) {
-    return <Skeleton className="w-[800px] bg-black h-[600px]" />
+    return <PageLoader/>
   }
 
   return (
