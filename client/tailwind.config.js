@@ -7,70 +7,82 @@ export default {
     theme: {
         extend: {
             keyframes: {
-                // Existing animations
-                ripple: {
-                    '0%': { transform: 'scale(0)', opacity: '1' },
-                    '100%': { transform: 'scale(2)', opacity: '0' },
-                },
-                float: {
-                    '0%, 100%': { transform: 'translateY(15px)', opacity: '0.8' },
-                    '50%': { transform: 'translateY(-15px)', opacity: '1' },
+                // Grid moving background
+                'grid-move': {
+                    '0%': { transform: 'translate(0, 0)' },
+                    '100%': { transform: 'translate(50px, 50px)' },
                 },
                 
-                // New stunning animations
-                'ripple-delayed': {
-                    '0%': { transform: 'scale(0)', opacity: '0.7' },
-                    '100%': { transform: 'scale(2.5)', opacity: '0' },
-                },
-                'ripple-slow': {
-                    '0%': { transform: 'scale(0)', opacity: '0.5' },
-                    '100%': { transform: 'scale(3)', opacity: '0' },
-                },
-                sparkle: {
-                    '0%, 100%': { transform: 'scale(0)', opacity: '0' },
-                    '50%': { transform: 'scale(1)', opacity: '1' },
-                },
-                'rotate-slow': {
-                    '0%': { transform: 'rotate(0deg)' },
-                    '100%': { transform: 'rotate(360deg)' },
-                },
+                // Spinning animations
                 'spin-slow': {
                     '0%': { transform: 'rotate(0deg)' },
                     '100%': { transform: 'rotate(360deg)' },
                 },
-                'pulse-slow': {
-                    '0%, 100%': { opacity: '0.4' },
-                    '50%': { opacity: '0.8' },
+                'spin-medium': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
                 },
-                'bounce-delayed': {
-                    '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
-                    '40%': { transform: 'translateY(-10px)' },
-                    '60%': { transform: 'translateY(-5px)' },
+                'spin-fast': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
                 },
-                'pulse-sequence': {
-                    '0%, 60%, 100%': { opacity: '0.3', transform: 'scale(1)' },
-                    '30%': { opacity: '1', transform: 'scale(1.2)' },
+                'spin-reverse': {
+                    '0%': { transform: 'rotate(360deg)' },
+                    '100%': { transform: 'rotate(0deg)' },
                 },
-                progress: {
+                
+                // Smooth pulse
+                'pulse-smooth': {
+                    '0%, 100%': { opacity: '0.4', transform: 'scale(0.8)' },
+                    '50%': { opacity: '1', transform: 'scale(1)' },
+                },
+                
+                // Wave animation for bars
+                'bar-wave': {
+                    '0%, 40%, 100%': { transform: 'scaleY(0.4)' },
+                    '20%': { transform: 'scaleY(1)' },
+                },
+                
+                // Text sliding
+                'text-slide': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' },
+                },
+                
+                // Expanding circles
+                'expand': {
+                    '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: '1' },
+                    '100%': { transform: 'translate(-50%, -50%) scale(6)', opacity: '0' },
+                },
+                
+                // Progress sliding
+                'progress-slide': {
                     '0%': { transform: 'translateX(-100%)' },
-                    '100%': { transform: 'translateX(400px)' },
+                    '50%': { transform: 'translateX(200%)' },
+                    '50.01%': { transform: 'translateX(-100%)' },
+                    '100%': { transform: 'translateX(-100%)' },
+                },
+                
+                // Random floating
+                'float-random': {
+                    '0%, 100%': { transform: 'translateY(0px) translateX(0px)', opacity: '0.2' },
+                    '25%': { transform: 'translateY(-20px) translateX(10px)', opacity: '0.4' },
+                    '50%': { transform: 'translateY(-40px) translateX(-5px)', opacity: '0.6' },
+                    '75%': { transform: 'translateY(-20px) translateX(-10px)', opacity: '0.4' },
                 },
             },
             animation: {
-                // Existing animations
-                ripple: 'ripple 4s cubic-bezier(0, 0.2, 0.8, 1) infinite',
-                float: 'float 4s infinite ease-in-out',
-                
-                // New animations
-                'ripple-delayed': 'ripple-delayed 4s cubic-bezier(0, 0.2, 0.8, 1) infinite 1s',
-                'ripple-slow': 'ripple-slow 4s cubic-bezier(0, 0.2, 0.8, 1) infinite 2s',
-                sparkle: 'sparkle 3s ease-in-out infinite',
-                'rotate-slow': 'rotate-slow 8s linear infinite',
-                'spin-slow': 'spin-slow 6s linear infinite',
-                'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
-                'bounce-delayed': 'bounce-delayed 2s infinite',
-                'pulse-sequence': 'pulse-sequence 1.5s infinite',
-                progress: 'progress 2s ease-in-out infinite',
+                'grid-move': 'grid-move 20s linear infinite',
+                'spin-slow': 'spin-slow 4s linear infinite',
+                'spin-medium': 'spin-medium 2s linear infinite',
+                'spin-fast': 'spin-fast 1s linear infinite',
+                'spin-reverse': 'spin-reverse 3s linear infinite',
+                'pulse-smooth': 'pulse-smooth 2s ease-in-out infinite',
+                'bar-wave': 'bar-wave 1.5s ease-in-out infinite',
+                'text-slide': 'text-slide 3s linear infinite',
+                'expand': 'expand 2s ease-out infinite',
+                'progress-slide': 'progress-slide 2s ease-in-out infinite',
+                'float-random': 'float-random 6s ease-in-out infinite',
             },
         },
     },
