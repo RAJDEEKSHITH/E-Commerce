@@ -87,14 +87,14 @@ const ProductImageUpload = ({
           className="hidden"
           ref={inputRef}
           onChange={handleImageFileChange}
-          disabled={isEditMode}
+          // disabled={isEditMode}
         />
         {!imageFile ? (
           <Label
             htmlFor="image-upload"
             className="flex flex-col items-center justify-center h-32 cursor-pointer"
           >
-            <UploadCloudIcon className={`${isEditMode ? "cursor-not-allowed" : ""} w-10 h-10 text-muted-foreground mb-2`} />
+            <UploadCloudIcon className={`${isEditMode ? "cursor-pointer" : ""} w-10 h-10 text-muted-foreground mb-2`} />
             <span>Drag & drop or click to upload image</span>
           </Label>
         ) : (
