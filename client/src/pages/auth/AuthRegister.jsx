@@ -66,3 +66,4 @@ function onSubmit(event) {
 };
 
 export default AuthRegister;
+

@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -41,6 +43,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -76,6 +79,7 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
+
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -110,6 +114,7 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -119,46 +124,95 @@
   }
 }
 
-/* ADD YOUR CUSTOM ANIMATIONS HERE - AFTER THE EXISTING CODE */
+
+/* =================  YOUR EXISTING ANIMATIONS ================ */
+
 @layer utilities {
   /* Loader Animations - Monochrome Moving Loader */
   @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes spin-reverse {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
   }
 
   @keyframes pulse-smooth {
-    0%, 100% { opacity: 0.4; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1); }
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   @keyframes bar-wave {
-    0%, 40%, 100% { transform: scaleY(0.4); }
-    20% { transform: scaleY(1); }
+    0%,
+    40%,
+    100% {
+      transform: scaleY(0.4);
+    }
+    20% {
+      transform: scaleY(1);
+    }
   }
 
   @keyframes slide-progress {
-    0% { transform: translateX(-100%); }
-    50% { transform: translateX(200%); }
-    51% { transform: translateX(-100%); }
-    100% { transform: translateX(-100%); }
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(200%);
+    }
+    51% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 
   @keyframes text-glow {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   @keyframes float-particle {
-    0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
-    25% { transform: translateY(-20px) translateX(10px); opacity: 0.4; }
-    50% { transform: translateY(-40px) translateX(-5px); opacity: 0.6; }
-    75% { transform: translateY(-20px) translateX(-10px); opacity: 0.4; }
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.2;
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-40px) translateX(-5px);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translateY(-20px) translateX(-10px);
+      opacity: 0.4;
+    }
   }
 
   /* Animation Classes */
@@ -188,5 +242,166 @@
 
   .animate-float-particle {
     animation: float-particle 6s ease-in-out infinite;
+  }
+
+  /* Auth Layout Animations */
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fade-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scale-fade {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes slide-fade {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-left {
+    animation: fade-in-left 1s ease forwards;
+  }
+  .animate-fade-in-right {
+    animation: fade-in-right 1s ease forwards;
+  }
+  .animate-scale-fade {
+    animation: scale-fade 0.8s ease forwards;
+  }
+  .animate-slide-fade {
+    animation: slide-fade 0.8s ease forwards;
+  }
+
+  /* =================== ADDED COLOR UTILITIES FOR AUTH UI =================== */
+
+  /* Cream colors */
+  .bg-cream-50 {
+    background-color: #FCFAF7;
+  }
+  .bg-cream-100 {
+    background-color: #F9F5F0;
+  }
+  .bg-cream-200 {
+    background-color: #F0EBE6;
+  }
+  .bg-cream-300 {
+    background-color: #E2DBD5;
+  }
+  .text-cream-100 {
+    color: #F9F5F0;
+  }
+  .text-cream-300 {
+    color: #E2DBD5;
+  }
+  .border-cream-300 {
+    border-color: #E2DBD5;
+  }
+
+  /* Charcoal colors */
+  .bg-charcoal-900 {
+    background-color: #2B2B26;
+  }
+  .bg-charcoal-800 {
+    background-color: #383833;
+  }
+  .bg-charcoal-700 {
+    background-color: #4B4B47;
+  }
+  
+  /* New animations for auth UI */
+
+  @keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes grid-move {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+    100% {
+      background-position: 40px 40px, 40px 40px;
+    }
+  }
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 1s ease forwards;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease forwards;
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+  .animate-grid-move {
+    animation: grid-move 20s linear infinite;
+  }
+  .animate-floating-slow {
+    animation: floating 6s ease-in-out infinite;
+  }
+  .animate-floating-slower {
+    animation: floating 9s ease-in-out infinite;
   }
 }
